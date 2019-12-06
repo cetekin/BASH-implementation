@@ -10,9 +10,10 @@
 #define STDOUT 1
 
 /* TODOs */
-//comm line buffer limit?
+//pipe buffer problem
 //rm exec?
 //shell exit
+//empty line segfault
 
 
 /* Fonksiyon Prototipleri */
@@ -89,7 +90,7 @@ void restore_std_descriptor(int original_stddesc, int pipe_flag, int stddesc) {
 void execute_command(char** arguments) {
 
     /* Tilde karakteri cd programi tarafindan taninmadigi icin, HOME path environment degiskeninden cekilmistir */
-    if (!strcmp(arguments[0],"cd")) {
+    if ( (arguments[0] != NULL) && (!strcmp(arguments[0],"cd")) ) {
         if (!strcmp(arguments[1],"~")) {
             chdir(getenv("HOME"));
         }
