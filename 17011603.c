@@ -13,7 +13,6 @@
 //pipe buffer problem
 //rm exec?
 //shell exit
-//empty line segfault
 
 
 /* Fonksiyon Prototipleri */
